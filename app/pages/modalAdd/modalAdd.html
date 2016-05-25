@@ -1,0 +1,25 @@
+<ion-toolbar>
+  <ion-buttons start (click)="close()">
+    <button>
+      Cancel
+    </button>
+  </ion-buttons>
+  <ion-title>
+    Ajouter
+  </ion-title>
+  <ion-buttons end (click)="save()">
+    <button>
+      OK
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="todo">
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Tache</ion-label>
+      <ion-input type="task" [(ngModel)]="task"></ion-input>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

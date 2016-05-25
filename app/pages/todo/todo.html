@@ -2,7 +2,7 @@
   <ion-title>
     Todo
   </ion-title>
-  <ion-buttons end>
+  <ion-buttons end (click)="showModal()">
     <button>
       <ion-icon name="add"></ion-icon>
     </button>
@@ -11,10 +11,9 @@
 
 <ion-content class="todo">
   <ion-list>
-    <ion-item *ngFor="#item of items">
-      <ion-label>{{ item.title }}</ion-label>
-      <ion-checkbox checked="{{ item.checked }}" (click)="data.updateItem(item)" ></ion-checkbox>
-    </ion-item>
-
+      <ion-item *ngFor="#item of items">
+        <ion-label>{{ item.title }}</ion-label>
+        <ion-checkbox checked="{{ item.checked }}" (click)="data.updateItem(item)" ></ion-checkbox>
+      </ion-item>
   </ion-list>
 </ion-content>
