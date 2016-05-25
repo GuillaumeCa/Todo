@@ -1,0 +1,17 @@
+<ion-navbar *navbar>
+  <ion-title>
+    Done
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="done">
+  <ion-list>
+    <div *ngFor="#item of items">
+      <ion-item *ngIf="item.checked">
+        <ion-label>{{ item.title }}</ion-label>
+        <ion-checkbox checked="{{ item.checked }}"></ion-checkbox>
+      </ion-item>
+    </div>
+
+  </ion-list>
+</ion-content>
