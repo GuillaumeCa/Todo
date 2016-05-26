@@ -2,13 +2,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class Data {
-  static items: Array<any> = [{
-    title: 'a',
-    checked: false
-  },{
-      title: 'a',
-      checked: false
-  }];
+  static items: Array<any> = [];
 
   getData(){
     return Data.items;
@@ -23,11 +17,16 @@ export class Data {
   }
 
   deleteItem(e) {
-    // for (let i = 0; i < Data.items.length; i++) {
-    //     if (Data.items[i] == e) {
-    //       Data.items[i]
-    //     }
-    // }
     Data.items = Data.items.splice(Data.items.indexOf(e), 1);
+  }
+
+  cleanItem() {
+    let cleanItems = [];
+    Data.items.forEach(function(item, i) {
+      if (!item.checked) {
+        cleanItems.push(item);
+      }
+    });
+    return cleanItems;
   }
 }
