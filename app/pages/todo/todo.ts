@@ -19,10 +19,6 @@ export class TodoPage {
     this.nav = nav;
   }
 
-  cleanItem() {
-    this.items = this.data.cleanItem();
-  }
-
   showModal() {
     let modal = Modal.create(ModalAdd);
     this.nav.present(modal);
