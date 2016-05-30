@@ -5,7 +5,7 @@ import {Data} from '../../provider/data';
   templateUrl: 'build/pages/modalAdd/modalAdd.html'
 })
 export class ModalAdd {
-  task: String = "";
+  task: string = "";
   constructor(private viewCtrl: ViewController, private data: Data) {
   }
 

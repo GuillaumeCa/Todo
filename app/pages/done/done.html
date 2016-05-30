@@ -8,7 +8,7 @@
   <ion-list>
     <div *ngFor="#item of items">
       <ion-item *ngIf="item.checked">
-        <ion-label>{{ item.title }}</ion-label>
+        <ion-label>{{ item.name }}</ion-label>
         <ion-checkbox checked="{{ item.checked }}"></ion-checkbox>
       </ion-item>
     </div>

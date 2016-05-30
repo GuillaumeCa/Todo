@@ -1,15 +1,30 @@
 import {Injectable} from '@angular/core';
+import {Http, Headers, RequestOptions} from '@angular/http';
+
 
 @Injectable()
 export class Data {
-  items: Array<any> = [];
+  header: Headers = new Headers({ 'Content-Type': 'application/json' });
+  options: RequestOptions = new RequestOptions({ headers: this.header });
+  api: string = 'http://localhost:3000/api/todo';
+  items: any;
 
-  getData() {
-    return this.items;
+  constructor(public http: Http) {
+
+  }
+
+  getData(done) {
+    this.http.get(this.api)
+    .map(res => res.json())
+    .subscribe(
+      data => done(data)
+    );
   }
 
   updateItem(e) {
-    this.items[this.items.indexOf(e)].checked = !e.checked;
+    e.checked = !e.checked;
+    let body = JSON.stringify(e);
+    this.http.put(this.api + '/' + e._id, body, this.options);
   }
 
   addItem(e) {

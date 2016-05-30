@@ -10,6 +10,8 @@ export class DonePage {
   items: Array<any>;
 
   constructor(data: Data) {
-    this.items = data.getData();
+    data.getData(data => {
+      this.items = data;
+    });
   }
 }
