@@ -1,11 +1,13 @@
 import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {Tabs} from './pages/tabs/tabs';
+import {Data} from './provider/data';
 
 
 @App({
   template: '<ion-nav [root]="rootPage"></ion-nav>',
-  config: {} // http://ionicframework.com/docs/v2/api/config/Config/
+  config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
+  providers: [Data]
 })
 export class MyApp {
   rootPage: any = Tabs;

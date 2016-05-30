@@ -11,9 +11,18 @@
 
 <ion-content class="todo">
   <ion-list>
-      <ion-item *ngFor="#item of items">
+    <ion-item-sliding *ngFor="#item of items">
+      <ion-item>
         <ion-label>{{ item.title }}</ion-label>
-        <ion-checkbox checked="{{ item.checked }}" (click)="data.updateItem(item)" ></ion-checkbox>
+        <ion-checkbox checked="{{ item.checked }}" (click)="update(item)" ></ion-checkbox>
       </ion-item>
+      <ion-item-options>
+        <button primary danger (click)="delete(item)">
+          Supprimer
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
   </ion-list>
 </ion-content>

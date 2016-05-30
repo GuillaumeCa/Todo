@@ -4,24 +4,27 @@ import {Modal, NavController} from 'ionic-angular'
 import {ModalAdd} from '../modalAdd/modalAdd';
 
 @Page({
-  templateUrl: 'build/pages/todo/todo.html',
-  providers: [Data]
+  templateUrl: 'build/pages/todo/todo.html'
 })
 export class TodoPage {
 
   items: Array<any>;
-  data: Data;
-  nav: NavController;
 
-  constructor(data: Data, nav: NavController) {
-    this.items = data.getData()
-    this.data = data;
-    this.nav = nav;
+  constructor(private data: Data, private nav: NavController) {
+    this.items = data.items;
   }
 
   showModal() {
     let modal = Modal.create(ModalAdd);
     this.nav.present(modal);
+  }
+
+  update(e) {
+    this.data.updateItem(e);
+  }
+
+  delete(e) {
+    this.data.deleteItem(e);
   }
 
 }

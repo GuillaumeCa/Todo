@@ -2,18 +2,23 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class Data {
-  static items: Array<any> = [];
+  items: Array<any> = [];
 
-  getData(){
-    return Data.items;
+  getData() {
+    return this.items;
   }
 
   updateItem(e) {
-    Data.items[Data.items.indexOf(e)].checked = !e.checked;
+    this.items[this.items.indexOf(e)].checked = !e.checked;
   }
 
   addItem(e) {
-    Data.items.push(e);
+    this.items.push(e);
+  }
+
+  deleteItem(e) {
+    let index = this.items.indexOf(e);
+    this.items.splice(index, 1);
   }
 
 }
