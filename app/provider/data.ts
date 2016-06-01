@@ -24,16 +24,16 @@ export class Data {
   updateItem(e) {
     e.checked = !e.checked;
     let body = JSON.stringify(e);
-    this.http.put(this.api + '/' + e._id, body, this.options);
+    this.http.put(this.api + '/' + e._id, body, this.options).subscribe(data => {}, err => console.log(err));
   }
 
   addItem(e) {
-    this.items.push(e);
+    let body = JSON.stringify(e);
+    this.http.post(this.api, body, this.options).subscribe(data => {}, err => console.log(err));
   }
 
   deleteItem(e) {
-    let index = this.items.indexOf(e);
-    this.items.splice(index, 1);
+    this.http.delete(this.api + '/' + e._id).subscribe(data => {}, err => console.log(err));
   }
 
 }

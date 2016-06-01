@@ -11,9 +11,16 @@ export class TodoPage {
   items: Array<any>;
 
   constructor(private data: Data, private nav: NavController) {
-    data.getData(data => {
+  }
+
+  loadData() {
+    this.data.getData(data => {
       this.items = data;
+      console.log(data);
     });
+  }
+  private onPageDidEnter(){
+    this.loadData();
   }
 
   showModal() {
